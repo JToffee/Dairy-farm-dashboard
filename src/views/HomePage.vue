@@ -3,137 +3,7 @@
       <banner-vue class="banner"></banner-vue>
       <GeneralSummary class="summary"></GeneralSummary>
       
-      <div class="week-summary">
-        <h4>Last Week's Summary</h4>
-        <table>
-          <th></th>
-          <th>Mon</th>
-          <th>Tue</th>
-          <th>Wed</th>
-          <th>Thu</th>
-          <th>Fri</th>
-          <th>Sat</th>
-          <th>Sun</th>
-          <th>Total</th>
-          <tbody>
-              <tr style="">
-                <td class="row-category">
-                  Produce
-                </td>
-                <td>
-                  200
-                </td>
-                <td>
-                  200
-                </td>
-                <td>
-                  200
-                </td>
-                <td>
-                  200
-                </td>
-                <td>
-                  200
-                </td>
-                <td>
-                  200
-                </td>
-                <td>
-                  200
-                </td>
-                <td>
-                  15000
-                </td>
-                
-              </tr>
-              <tr>
-                <td  class="row-category">
-                  Revenue
-                </td>
-                <td>
-                  
-                </td>
-                <td>
-                  
-                </td>
-                <td>
-                  
-                </td>
-                <td>
-
-                </td>
-                <td>
-                  
-                </td>
-                <td>
-                  
-                </td>
-                <td>
-                  
-                </td>
-                
-              </tr>
-              <tr>
-                <td class="row-category" style="padding-bottom: 0.8rem;">
-                  Expenses
-                </td>
-                <td>
-                  
-                </td>
-                <td>
-                  
-                </td>
-                <td>
-                  
-                </td>
-                <td>
-
-                </td>
-                <td>
-                  
-                </td>
-                <td>
-                  
-                </td>
-                <td>
-                  
-                </td>
-                
-              </tr>
-              <tr class="last-row">
-                <td class="row-category">
-                  Net Income
-                </td>
-                <td>
-                  
-                </td>
-                <td>
-                  
-                </td>
-                <td>
-                  
-                </td>
-                <td>
-
-                </td>
-                <td>
-                  
-                </td>
-                <td>
-                  
-                </td>
-                <td>
-                  
-                </td>
-                <td>
-                  
-                </td>
-              </tr>
-          
-          </tbody>
-          
-        </table>
-      </div>
+     
 
     </main>
 </template>
@@ -166,59 +36,14 @@
     flex-basis: 100%;
   }
 
-  .week-summary{
-    margin-bottom: 2rem;
-    margin-top: 2rem;
-    background-color: var(--white);
-    padding: 2rem;
-    border-radius: 2rem;
-
-    h4{
-      color: var(--primary600);
-      padding-bottom: 1vh;
-    }
-  }
+  
   .summary {
     z-index: 1;
   }
   
 }
 
-.week-summary table {
 
-  border-top: 1px solid var(--light-grey);
-  padding-top: 1rem;
-  margin-left: 1vw;
-  font-size: 0.88rem;
-
-  td{
-    padding-right: 1rem;
-  }
-
-  th{
-    padding-right: 1rem;
-    padding-bottom: 1rem;
-    color: var(--primary600);
-  }
-
-  tr{
-   padding: 2rem;
-   color: var(--dark-grey);
-  
-  }
-
-  .row-category{
-    font-weight: 500;
-  }
-  
-  .last-row{
-    & td{
-      border-top: 1px solid var(--mid-grey);
-      padding-top: 0.3rem;
-    }
-  }
-
-}
 
 
 

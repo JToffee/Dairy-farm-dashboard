@@ -1,6 +1,6 @@
 <template>
-  <div class="thumbnail">
-    <p class="title--thumbnail">{{ title }}</p>
+  <div :class="`thumbnail ${className}`">
+    <p class="title-thumbnail">{{ title }}</p>
     <p id="value" class="value-thumbnail">{{ value }} {{ unit }}</p>
     <p class="difference">{{ difference }}</p>
   </div>
@@ -17,53 +17,50 @@
     mounted() {},
   };
 </script>
-<style scoped>
+<style lang="scss" scoped>
   .thumbnail {
-    /* border: 2px solid var(--accent400); */
     margin-top: 3vh;
     padding: 1vw;
     margin: 0;
     padding-right: 0;
     height: 30vh;
-    color: var(--white);
+    color: var(--light-grey);
     width: fit-content;
-    /* -webkit-box-shadow: 1px 1px 25px 1px  var(--shadow-grey); */
     border-radius: 1vw;
-    box-shadow: inset;
-    color: black;
 
-    /* border: 1px solid var(--accent300); */
-    /* background-color: var(--dark-grey); */
+    p {
+    text-align: left;
+    margin-left: 1vw;
+}
   }
-  .title--thumbnail {
-    flex-basis: 100%;
+
+  .title-thumbnail {
     margin-bottom: 1vh;
     margin-top: 2vh;
     font-size: 0.88rem;
     text-align: center;
     border: none;
-    /* color: var(--dark-grey); */
+  
   }
   .value-thumbnail {
-    /* border: 1px solid #092841; */
-    /* background-color: var(--color-bcg-7); */
-    background-color: var(--primary600);
     width: fit-content;
     padding: 1vh 1vw;
-    font-size: 0.88rem;
-    color: #fff;
-    opacity: 0.8;
+    background-color: var(--shadow-grey);
+    color: var(--black);
+    font-size: 1rem;
   }
-  .thumbnail--active .value-thumbnail {
-    background-color: var(--dark-grey);
-  }
-  .difference {
-    text-indent: 1vw;
-    margin-top: 0.3rem;
 
+.thumbnail-active {
+
+  .value-thumbnail {
+    background-color: var(--accent1200);
   }
-  .thumbnail p {
-    text-align: left;
-    margin-left: 1vw;
-  }
+}
+
+.difference {
+  text-indent: 1vw;
+  margin-top: 0.3rem;
+
+}
+
 </style>

@@ -608,37 +608,37 @@ table tr .key-value{
 }
 
 .week-summary table {
-background-color: var(--background-grey);
-border-top: 1px solid var(--light-grey);
-padding: 1rem;
-font-size: 1rem;
+  background-color: var(--background-grey);
+  border-top: 1px solid var(--light-grey);
+  padding: 1rem;
+  font-size: 1rem;
 
-& td{
-  padding-right: 1rem;
-}
-
-& th{
-  padding-right: 1rem;
-  padding-bottom: 1rem;
-  color: var(--primary600);
-}
-
-& tr{
-padding: 2rem;
-color: var(--dark-grey);
-
-}
-
-& .row-category{
-  font-weight: 500;
-}
-
-& .last-row{
   & td{
-    border-top: 1px solid var(--mid-grey);
-    padding-top: 0.3rem;
+    padding-right: 1rem;
   }
-}
+
+  & th{
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+    color: var(--primary600);
+  }
+
+  & tr{
+  padding: 2rem;
+  color: var(--dark-grey);
+
+  }
+
+  & .row-category{
+    font-weight: 500;
+  }
+
+  & .last-row{
+    & td{
+      border-top: 1px solid var(--mid-grey);
+      padding-top: 0.3rem;
+    }
+  }
 
 }
 

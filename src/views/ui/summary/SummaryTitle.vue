@@ -4,7 +4,7 @@
       {{ str1 }}<span>{{ str2 }}</span
       >{{ str3 }}
     </h2>
-    <span class="date">
+    <span v-if = "this.startDate" class="date">
       <h5>{{ formatDate(startDate) }}</h5>
       <h5 v-if="this.endDate && this.endDate !== this.startDate">
         - <span style="margin-left: 1vw">{{ formatDate(endDate) }}</span>
@@ -60,7 +60,6 @@
     margin-bottom: 0vh;
   }
   .title-thumbnails h2 {
-    margin-left: 2vw;
     margin-top: 5vh;
     margin-bottom: 3vh;
     color: var(--primary700);
