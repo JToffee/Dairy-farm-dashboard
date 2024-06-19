@@ -54,6 +54,7 @@
 
   .value-thumbnail {
     background-color: var(--accent1200);
+    color: var(--black);
   }
 }
 

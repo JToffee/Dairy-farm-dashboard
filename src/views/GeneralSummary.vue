@@ -235,7 +235,7 @@
         MFPR<br>
         <span> 1.5</span>
       </P>
-      <p>
+      <p class="key-value">
         Profitability<br>
         <span>50%</span>
       </p>
@@ -408,9 +408,7 @@ main{
     border-radius: 1rem;
     justify-content: space-between;
     margin-bottom: 6vh;
-
     
-
     table{
       flex-basis: 50%;
       background-color: var(--white);
@@ -418,8 +416,8 @@ main{
       border-top: 1px solid var(--light-grey);
       padding-top: 1rem;
       font-size: 0.88rem;
-      
       padding: 1rem;
+      
     }
     .pie{
       flex-basis: 40%;
@@ -459,6 +457,10 @@ main{
       line-height: 5vh;
       font-size: 1.3rem;
       }
+    }
+
+    .key-value{
+      color: var(--accent400);
     }
     .farm-averages{
       display: flex;
@@ -557,16 +559,17 @@ main{
 
 .week-summary{
    
-    h4{
-      color: var(--primary600);
-      padding-bottom: 1vh;
-    }
+  h4{
+    color: var(--primary600);
+    padding-bottom: 1vh;
+  }
 
   .week-summary table {
     
 
     td{
       padding-right: 1rem;
+      
     }
 
     th{
@@ -576,8 +579,8 @@ main{
     }
 
     tr{
-    padding: 2rem;
-    color: var(--dark-grey);
+      padding: 2rem;
+      color: var(--dark-grey);
 
     }
 
@@ -585,18 +588,18 @@ main{
       font-weight: 500;
     }
 
-    .last-row{
-      
-      td{
-        border-top: 2px solid var(--accent1200);
-        padding-top: 0.3rem;
-      }
-    }
+   
   }
 }
 
 
-
+.last-row{
+      
+  & td{
+    border-top: 2px solid var(--accent1200);
+    padding-top: 0.3rem;
+  }
+}
 
 .title{
     margin-top: -4vh;

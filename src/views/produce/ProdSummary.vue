@@ -128,11 +128,166 @@
 
     </div>
 
-    <div class="farm-averages">
-      <summary-title
+    <div class="week-summary">
+    <summary-title
+    class="title"
+      title="Last Week's Summary"
+      :startDate="this.today"
+      :endDate="this.today"
+    ></summary-title>
+
+    <table>
+      <th></th>
+      <th>Mon</th>
+      <th>Tue</th>
+      <th>Wed</th>
+      <th>Thu</th>
+      <th>Fri</th>
+      <th>Sat</th>
+      <th>Sun</th>
+      <th>Total</th>
+      <tbody>
+          <tr style="">
+            <td class="row-category">
+              Morning
+            </td>
+            <td>
+              200
+            </td>
+            <td>
+              200
+            </td>
+            <td>
+              200
+            </td>
+            <td>
+              200
+            </td>
+            <td>
+              200
+            </td>
+            <td>
+              200
+            </td>
+            <td>
+              200
+            </td>
+            <td>
+              15000
+            </td>
+            
+          </tr>
+          <tr>
+            <td  class="row-category">
+              Noon
+            </td>
+            <td>
+              
+            </td>
+            <td>
+              
+            </td>
+            <td>
+              
+            </td>
+            <td>
+
+            </td>
+            <td>
+              
+            </td>
+            <td>
+              
+            </td>
+            <td>
+              
+            </td>
+            
+          </tr>
+          <tr>
+            <td class="row-category" style="padding-bottom: 0.8rem;">
+              Evening
+            </td>
+            <td>
+              
+            </td>
+            <td>
+              
+            </td>
+            <td>
+              
+            </td>
+            <td>
+
+            </td>
+            <td>
+              
+            </td>
+            <td>
+              
+            </td>
+            <td>
+              
+            </td>
+            
+          </tr>
+          <tr class="last-row">
+            <td class="row-category">
+              Total
+            </td>
+            <td>
+              
+            </td>
+            <td>
+              
+            </td>
+            <td>
+              
+            </td>
+            <td>
+
+            </td>
+            <td>
+              
+            </td>
+            <td>
+              
+            </td>
+            <td>
+              
+            </td>
+            <td>
+              
+            </td>
+          </tr>
+      
+      </tbody>
+      
+    </table>
+
+    <div class="pie">
+      <h4>Income distribution</h4>
+      <img :src=  "pie" alt="pie">
+     </div>
+  </div>
+
+  <div class="farm-values">
+    <summary-title
           class="title"
-          title="2024 Farm Averages">
-        </summary-title>
+          title="Farm Averages">
+    </summary-title>
+
+    <div class="farm-averages">  
+      <form action="">
+        <div class="form-group">
+          <label for="">Year</label>
+          <select name="" id="">
+            <option value="">2024</option>
+            <option value="">2024</option>
+            <option value="">2024</option>
+          </select>
+        </div>
+      </form> 
       <p>
         Lactation/Cow <br>
         <span>45.3 L/d</span>
@@ -146,6 +301,14 @@
         <span> 50% </span>
       </p>
       <p>
+        Lactating DMI <br>
+        <span>600</span>
+      </p>
+      <p>
+        Somatic cells/ML <br>
+        <span>600</span>
+      </p>
+      <p>
       MFPR <br>
         <span> 1.5</span>
       </p>
@@ -153,10 +316,64 @@
         Feed cost/cwt <br>
         <span>54</span>
       </p>
-      <p>
-        Lactating DMI <br>
-        <span>600</span>
-      </p>
+    </div>
+
+    <div class="charts">
+      
+      <form action="">
+        <div class="form-group">
+          <label for="">Metric</label>
+          <select name="" id="">
+            <option value="">Lactation</option>
+            <option value="">MFPR</option>
+            <option value="">SCC</option>
+          </select>
+        </div>
+      </form>
+        <img :src="line" alt="graph">
+    </div>
+</div>
+    <div class="charts">
+      <!-- Graph 1 will be a a line chat of produce vs day of the month and will have two lines, one labelled all cows averages and the onther one labelled with the cow's name based on user selection
+      Graph 2 will be a line chart of produce vs month of the year and will have similar lines as Graph 1 based on the selected year and cow name. Both graphs shows daily average milk produce per cow
+      
+      Graph 3 and 4 will show similar data except that the produce is considered in totality rather than per cow. Grahp 3 will show days of the month and graph 4 will show months of the year.
+      -->
+        <summary-title
+      class="title"
+      title="Yearly production overview"
+      ></summary-title>
+      <form action="">
+        <div class="form-group">
+          <label for="">Year</label>
+          <select name="" id="">
+            <option value="">2024</option>
+            <option value="">2024</option>
+            <option value="">2024</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="">Month</label>
+          <select name="" id="">
+            <option value="">Jan</option>
+            <option value="">Feb</option>
+            <option value="">March</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="">Cow name</label>
+          <select name="" id="">
+            <option value="">Lelly</option>
+            <option value="">Barry</option>
+          </select>
+        </div>
+      </form>
+      <div class="graph-section">
+        <img :src="line" alt="graph">
+        <img :src="line" alt="graph">
+        <img :src="line" alt="graph">
+        <img :src="line" alt="graph">
+      </div>
     </div>
 
   </main>
@@ -167,6 +384,8 @@
   import { TOMILLISECS } from "../../util/config.js";
   import SummaryTitle from "../ui/summary/SummaryTitle.vue";
   import ThumbnailVue from "../ui/summary/ThumbnailVue.vue";
+  import line from "../../assets/line-chart.png";
+
 
   export default {
     name: "ProduceSummary",
@@ -179,6 +398,7 @@
         cows: this.$store.state.cows,
         data: [],
         cowProduce: "",
+        line: line
       };
     },
     computed: {
@@ -400,7 +620,8 @@
 .produce {
   display: flex;
   flex-wrap: wrap;
- 
+  overflow: hidden;
+  width: calc(100vw - 200px);
 
   .today-summary {
     display: flex;
@@ -420,6 +641,7 @@
       padding: 1rem;
       justify-content: space-evenly;
       margin-left: 0;
+      margin-right: 3vw;
       background-color: var(--primary600);
       
 
@@ -462,34 +684,114 @@
       flex-basis: 50%; 
     }
 
-    .farm-averages{
+    .farm-values{
       display: flex;
       flex-wrap: wrap;
-      flex-basis: 45%;
-      margin-right: 3vw;
       margin-bottom: 10vh;
       background-color: var(--background-grey);
       padding: 1rem;
 
-
-      & p{
-        margin: 0.1rem;
-        min-width: 3vw;
-        text-align: center;
-        padding: 1rem;
-        border-right: 1.5px solid var(--light-grey);
+      .farm-averages{
+        display: flex;
+        flex-wrap: wrap;
+        flex-basis: 45%;
+        margin-right: 2vw;
+        max-height: 60vh;
         
+        
+        & p{
+          margin: 0.1rem;
+          min-width: 10vw;
+          text-align: center;
+          padding: 1rem;
+          background-color: var(--accent1200);
 
-        & span {
-        margin-top: 2vh;
-        font-weight: 600;
-        line-height: 5vh;
-        font-size: 1.3rem;
+          & span {
+          margin-top: 2vh;
+          font-weight: 600;
+          line-height: 5vh;
+          font-size: 1.3rem;
+          }
         }
       }
-    } 
+      .charts{
+        flex-basis: 40%;
+        margin-bottom: 0;
+        padding: 0;
+ 
+      }
+      form{
+          margin: 0;
+          margin-top: 1rem;
+          margin-left: 1rem;
+          
+          .form-group{
+            margin-right: 1rem;
+          }
+        } 
+    }
+    
+
+    .charts {
+      flex-basis: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 10vh;
+      background-color: var(--background-grey);
+      padding: 1rem;
+
+    .graph-section{
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    img{
+      border: 1px solid var(--background-grey);
+      margin: 1rem;
+      width: 450px
+    }
+
+  }
+     
 }
 
+form{
+      flex-basis: 100%;
+      display: flex;
+      flex-wrap: nowrap;
+      padding: 0;
+      margin-bottom: 3vh;
+      margin-top: 3vh;
+      background-color: transparent;
+      border: none;
+      justify-content: flex-start;
+
+      .form-group{
+        display: flex;
+        flex-wrap: nowrap;
+        padding: 0;
+        flex-basis: 25%;
+        margin: 0;
+      
+        label{
+          width: fit-content;
+          font-size: 0.88rem;
+          line-height: 8vh;
+          margin-right: 0.5vw;
+          padding: 0;
+        }
+        select{
+          width: fit-content;
+          min-width: 10vw;
+          text-align: center;
+          font-size: 0.9rem;
+          outline: none;
+          border: 1px solid var(--light-grey);
+          
+
+        }
+      }
+}
 .title {
     flex-basis: 100%;
     padding-left: 0;
@@ -502,6 +804,7 @@ h4{
 
 table tr .key-value{
   background-color: var(--accent1200);
+  
 }
 .thumbnails-container {
   

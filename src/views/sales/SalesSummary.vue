@@ -1,115 +1,58 @@
 <template>
-  <div class="thumbnails-container today-input">
+<main>
+  <div class="today-sales">
     <summary-title
-      title="Sales Summary"
+      title="Today's Summary"
       :startDate="startDate"
       :endDate="endDate"
+      class = 'title'
     ></summary-title>
-    <!-- <div class="row">
-				<thumbnail
-					title="KCC"
-					milk="3000"
-					money="50000"
-					difference="+ 300"
-				></thumbnail>
-				<thumbnail
-					title="Prepaid"
-					milk="3000"
-					money="50000"
-					difference="+ 300"
-				></thumbnail>
-				<thumbnail
-					title="Cash retail"
-					milk="3000"
-					money="50000"
-					difference="+ 300"
-				></thumbnail>
-				<thumbnail
-					title="Cash wholesale"
-					milk="3000"
-					money="50000"
-					difference="+ 300"
-				></thumbnail>
-			</div> -->
-    <!-- <div class="row">
-				<thumbnail
-					title="Billed"
-					milk="3000"
-					money="50000"
-					difference="+ 300"
-				></thumbnail>
-				<thumbnail
-					title="Unsold Milk"
-					milk="3000"
-					money="50000"
-					difference="+ 300"
-				></thumbnail>
-				<thumbnail
-					title="Total"
-					milk="3000"
-					money="50000"
-					difference="+ 300"
-				></thumbnail>
-			</div> -->
-    <div class="row">
+    <div class="summary">
       <table>
-        <th class="category-th">Category</th>
-        <th>Milk Qty(Litres)</th>
-        <th>Amount</th>
-        <th>Difference</th>
+        <th class="category-th"></th>
+        <th>Retail</th>
+        <th>Wholesale</th>
+        <th>Leche</th>
+        <th>KCC</th>
+        <th>Total</th>
         <tbody>
           <tr>
-            <td class="category">KCC</td>
+            <td class="category">Units sold (L)</td>
             <td>{{ kccMilk }}</td>
-            <td>{{ kccAmount }}</td>
-            <td>{{ kccDiff }}</td>
-          </tr>
-          <tr>
-            <td class="category">Prepaid</td>
             <td>{{ prepaidMilk }}</td>
-            <td>{{ prepaidAmount }}</td>
-            <td>{{ prepaidDiff }}</td>
-          </tr>
-          <tr>
-            <td class="category">Retail</td>
             <td>{{ retailMilk }}</td>
+            <td>{{ retailMilk }}</td>
+            <td>5000</td>
+
+            
+          </tr>
+          <tr>
+            <td class="category">Sale value(KES)</td>
+            <td>{{ prepaidAmount }}</td>
+            <td>{{ kccAmount }}</td>
             <td>{{ retailAmount }}</td>
+            <td>{{ retailAmount }}</td>
+            <td>500,000</td>
+          </tr>
+          <tr>
+            <td class="category">Difference(KES)</td>
             <td>{{ retailDiff }}</td>
-          </tr>
-          <tr>
-            <td class="category">Wholesale</td>
-            <td>{{ wholesaleMilk }}</td>
-            <td>{{ wholesaleAmount }}</td>
-            <td>{{ wholesaleDiff }}</td>
-          </tr>
-          <tr>
-            <td class="category">Billed</td>
-            <td>{{ billedMilk }}</td>
-            <td>{{ billedAmount }}</td>
-            <td>{{ billedDiff }}</td>
-          </tr>
-          <tr>
-            <td class="category">Unsold</td>
-            <td>{{ unsoldMilk }}</td>
-            <td>{{ unsoldAmount }}</td>
-            <td>{{ unsoldDiff }}</td>
-          </tr>
-          <tr>
-            <td class="category">Gross Total</td>
-            <td>{{ allMilk }}</td>
-            <td>{{ totalAmount }}</td>
-            <td>{{ amountDiff }}</td>
-          </tr>
-          <tr class="net">
-            <td class="category">Net total</td>
-            <td>{{ netMilk }} Litres</td>
-            <td>KES {{ netAmount }}</td>
-            <td>_</td>
+            <td>{{ kccDiff }}</td>
+            <td>{{ prepaidDiff }}</td>
+            <td>{{ prepaidDiff }}</td>
+            <td>{{ retailDiff }}</td>
+
+
+
           </tr>
         </tbody>
       </table>
     </div>
   </div>
+  <div class="main">
+
+  </div>
+</main>
 </template>
 
 <script>
@@ -412,43 +355,107 @@
     mounted() {},
   };
 </script>
-<style scoped>
-  .thumbnails-container {
-    background: transparent;
-    border: none;
-    margin-top: 2vh;
-  }
-  .row {
-    display: flex;
+<style lang="scss" scoped>
+  
+.title {
     flex-basis: 100%;
-    margin-top: 5vh;
+    padding-left: 0;
+    
+}
+
+h4{
+  margin-bottom: 1vh;
+  flex-basis: 100%;
+}
+
+table tr .key-value{
+  background-color: var(--accent1200);
+  
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+
+  .today-sales{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 0;
+    background-color: blue;
+
+    .summary{
+      background-color: aqua;
+      margin: 0;
+    }
   }
 
-  table {
-    width: 100%;
-    margin-top: -2vh;
-    padding: 2vh 2vw;
-  }
-  th {
-    text-align: center;
-    height: 2vh;
-    padding: 1vw;
-    color: var(--color-background);
-    background-color: var(--mid-grey);
 
-    font-size: 1.3rem;
-    font-weight: lighter;
+
+  .title{
+    background-color: red;
+    margin: 0;
   }
-  tr {
-    text-align: center;
+  
+
+}
+
+.today-sales  {
+  background-color: var(--background-grey);
+  border-top: 1px solid var(--light-grey);
+  padding: 0.2rem;
+  font-size: 1rem;
+  flex-basis: 80%;
+  margin: 0;
+
+
+  & td{
+    padding-right: 1rem;
+  }
+
+  & th{
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+    color: var(--primary600);
+  }
+
+  & tr{
+  color: var(--dark-grey);
+
+  }
+
+  & .row-category{
+    font-weight: 500;
+  }
+
+  & .last-row{
+    & td{
+      border-top: 1px solid var(--mid-grey);
+      padding-top: 0.3rem;
+    }
+  }
+
+}
+
+table{
+
+  th,td {
+    padding: 0.4rem;
+    text-align: left;
+    border: 1px solid var(--light-grey);
+    margin: 0;
   }
   td {
-    padding: 2vh;
-    /* background-color: var(--primary600); */
+    color: var(--dark-grey);
+
   }
-  tbody tr:nth-child(odd) {
-    background-color: var(--lightSteelBlue);
+  th {
+    color: var(--font-grey);
+    font-size: 0.8rem;
   }
+}
+  
   .category {
     font-weight: bold;
     /* color: var(--primary600); */
