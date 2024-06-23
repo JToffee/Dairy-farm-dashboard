@@ -44,16 +44,13 @@
 				<span class="material-symbols-outlined">email</span>
 				<span class="text">Contact</span>
 			</router-link>
-		</div>
-
-		<div class="flex"></div>
-		
-		<div class="menu">
 			<router-link to="/settings" class="menu-item">
 				<span class="material-symbols-outlined">settings</span>
 				<span class="text">Settings</span>
 			</router-link>
 		</div>
+
+		
 	</aside>
 </template>
 

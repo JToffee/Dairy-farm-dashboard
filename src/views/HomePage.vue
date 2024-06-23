@@ -1,11 +1,29 @@
 <template>
   <main class = "homepage">
-      <banner-vue class="banner"></banner-vue>
-      <GeneralSummary class="summary"></GeneralSummary>
-      
-     
-
-    </main>
+    <div class="banner">
+      <banner-vue class="banner-vue"></banner-vue>
+      <div class="finance">
+          <p>
+            Cash Balance<br>
+            <span> KES 500,000 </span>
+          </p>
+          <p>
+            Accounts Receivables<br>
+            <span> KES 50,000</span>
+          </p>
+          <p>
+            Accounts Payable<br>
+            <span> KES 50/L </span>
+          </p>
+          <p class="last-p">
+            Net Profit margin<br>
+            <span> 20%</span>
+          </p>
+      </div>
+    </div>
+    
+    <GeneralSummary class="summary"></GeneralSummary>
+  </main>
 </template>
 
 <script>
@@ -27,15 +45,64 @@
 
 .homepage{
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   flex-wrap: wrap;
-  max-width: calc(100vw - 300px);
   overflow: hidden;
+  max-width: calc(100vw - 250px);
+
 
   .banner{
     flex-basis: 100%;
-  }
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--primary700);
+    overflow: visible;
+    margin-bottom: 10vh;
+    height: fit-content;
 
+    .banner-vue{
+      flex-basis: 100%;
+    }
+
+    .finance{
+      width: fit-content;
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 10vh;
+
+        & p{
+            margin: 0.1rem;
+            text-align: left;
+            padding: 1rem;
+            width: fit-content;
+            font-size: 1rem;
+            padding-top: 1.5rem;
+            margin: 0;
+            text-transform: uppercase;
+            color: var(--shadow-grey);
+
+            & span {
+            margin-top: 2vh;
+            font-weight: 600;
+            line-height: 8vh;
+            font-size: 1.3rem;
+            color: var(--accent300);
+
+            }
+          }
+
+          .last-p{
+            border: none;
+            text-align: center;
+            background-color: var(--shadow-grey);
+            color: var(--black);
+
+          }
+          .key-value{
+            color: var(--accent400);
+          }
+      }
+  }
   
   .summary {
     z-index: 1;

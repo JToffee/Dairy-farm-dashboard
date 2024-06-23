@@ -53,8 +53,9 @@ import SidebarVue from './components/SidebarVue.vue';
     //ORANGE
     /* --accent200: #e5c7b1; */
     --accent200: #b6594c;
-    --accent300: #db3f4c;
-    --accent400: #e74a2ed3;
+    --accent300: #bd331ad3;;
+    --accent400: #cf371cd3;
+    --accent500: #b43019d3;
     --accent100: #f88570d3;
 
 
@@ -67,8 +68,10 @@ import SidebarVue from './components/SidebarVue.vue';
     --black: black;
     --white: #ffffff;
     --dark-grey: #464541;
+    --dark-grey200: #3b3b3a;
     --mid-grey: #8a8585;
     --light-grey: #f5f0f0;
+    --font-grey: #e5e3e3;
     --lightSteelBlue: #b0c4de;
     --borderGrey: #d4d0d0;
     --shadow-grey: #c1c8ce;

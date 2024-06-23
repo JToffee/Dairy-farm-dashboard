@@ -42,6 +42,19 @@
       ></thumbnail-vue>
 
     </div>
+
+    <div class="today-averages">
+    
+      <p>
+       Lactation/Cow<br>
+        <span> 43.5 KG</span>
+      </p>
+      <P>
+        Price/Litre<br>
+        <span>KES 50 </span>
+      </P>
+      
+    </div>
   </div>
 
   <div class="week-summary">
@@ -236,7 +249,7 @@
         <span> 1.5</span>
       </P>
       <p class="key-value">
-        Profitability<br>
+        Profit margin<br>
         <span>50%</span>
       </p>
     </div>
@@ -389,6 +402,27 @@ main{
       justify-content: space-evenly;
       flex-basis: 60%;
       margin: 0;
+    }
+    .today-averages{
+      flex-basis: 30%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+
+      p{
+      margin: 0.1rem;
+      width: 10vw;
+      text-align: center;
+      padding: 1rem;
+      background-color: var(--shadow-grey);
+
+      & span {
+      margin-top: 2vh;
+      font-weight: 600;
+      line-height: 8vh;
+      font-size: 1.3rem;
+      }
+     }
     }
   }
 

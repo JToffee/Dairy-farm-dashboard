@@ -332,7 +332,7 @@
       </form>
         <img :src="line" alt="graph">
     </div>
-</div>
+  </div>
     <div class="charts">
       <!-- Graph 1 will be a a line chat of produce vs day of the month and will have two lines, one labelled all cows averages and the onther one labelled with the cow's name based on user selection
       Graph 2 will be a line chart of produce vs month of the year and will have similar lines as Graph 1 based on the selected year and cow name. Both graphs shows daily average milk produce per cow
@@ -756,41 +756,41 @@
 }
 
 form{
-      flex-basis: 100%;
-      display: flex;
-      flex-wrap: nowrap;
+  flex-basis: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 0;
+  margin-bottom: 3vh;
+  margin-top: 3vh;
+  background-color: transparent;
+  border: none;
+  justify-content: flex-start;
+
+  .form-group{
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 0;
+    flex-basis: 25%;
+    margin: 0;
+  
+    label{
+      width: fit-content;
+      font-size: 0.88rem;
+      line-height: 8vh;
+      margin-right: 0.5vw;
       padding: 0;
-      margin-bottom: 3vh;
-      margin-top: 3vh;
-      background-color: transparent;
-      border: none;
-      justify-content: flex-start;
-
-      .form-group{
-        display: flex;
-        flex-wrap: nowrap;
-        padding: 0;
-        flex-basis: 25%;
-        margin: 0;
+    }
+    select{
+      width: fit-content;
+      min-width: 10vw;
+      text-align: center;
+      font-size: 0.9rem;
+      outline: none;
+      border: 1px solid var(--light-grey);
       
-        label{
-          width: fit-content;
-          font-size: 0.88rem;
-          line-height: 8vh;
-          margin-right: 0.5vw;
-          padding: 0;
-        }
-        select{
-          width: fit-content;
-          min-width: 10vw;
-          text-align: center;
-          font-size: 0.9rem;
-          outline: none;
-          border: 1px solid var(--light-grey);
-          
 
-        }
-      }
+    }
+  }
 }
 .title {
     flex-basis: 100%;

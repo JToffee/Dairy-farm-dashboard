@@ -2,12 +2,32 @@
 <main>
   <div class="today-sales">
     <summary-title
-      title="Today's Summary"
+      title="Today's Sales"
       :startDate="startDate"
       :endDate="endDate"
       class = 'title'
     ></summary-title>
     <div class="summary">
+      <div class="tiles">
+        <p>
+          Gross sales<br>
+          <span> KES 500,000 </span>
+        </p>
+        <p>
+          Expenses <br>
+          <span> KES 500 </span>
+        </p>
+        <p>
+          Receivables<br>
+          <span> KES 5000 </span>
+        </p>
+        <p>
+          Cash in hand
+          <span> KES 50,000 </span>
+        </p>
+        
+      </div>
+
       <table>
         <th class="category-th"></th>
         <th>Retail</th>
@@ -17,12 +37,12 @@
         <th>Total</th>
         <tbody>
           <tr>
-            <td class="category">Units sold (L)</td>
+            <td class="category">Units sold (Litres)</td>
             <td>{{ kccMilk }}</td>
             <td>{{ prepaidMilk }}</td>
             <td>{{ retailMilk }}</td>
             <td>{{ retailMilk }}</td>
-            <td>5000</td>
+            <td class ="key-value">5000 L</td>
 
             
           </tr>
@@ -32,7 +52,7 @@
             <td>{{ kccAmount }}</td>
             <td>{{ retailAmount }}</td>
             <td>{{ retailAmount }}</td>
-            <td>500,000</td>
+            <td class = "key-value">KES 500,000</td>
           </tr>
           <tr>
             <td class="category">Difference(KES)</td>
@@ -40,17 +60,91 @@
             <td>{{ kccDiff }}</td>
             <td>{{ prepaidDiff }}</td>
             <td>{{ prepaidDiff }}</td>
-            <td>{{ retailDiff }}</td>
+            <td class = "key-value">KES {{ retailDiff }}</td>
 
 
 
           </tr>
         </tbody>
       </table>
+      
+     
     </div>
   </div>
-  <div class="main">
 
+  <div class="last-week">
+    <summary-title
+      title="Last week Summary"
+      :startDate="startDate"
+      :endDate="endDate"
+      class = 'title'
+    ></summary-title>
+
+    <div class="tiles">
+      
+      <p>
+        Gross sales<br>
+        <span> KES 500,000 </span>
+      </p>
+      <p>
+        Profit<br>
+        <span> KES 50,000</span>
+      </p>
+      <p>
+        Avg Unit Price<br>
+        <span> KES 50/L </span>
+      </p>
+      <p>
+        Receivables<br>
+        <span> KES 50,000</span>
+      </p>
+      <p>
+        Cash in hand<br>
+        <span> KES 50,000</span>
+      </p>
+      <p>
+        Feeds cost <br>
+        <span> KES 50,000 </span>
+      </p>
+      <p>
+        Non-feeds cost<br>
+        <span> KES 5000 </span>
+      </p>
+      <p>
+        Feed cost/cwt <br>
+        <span>54</span>
+      </p>
+      <p class="key-value">
+        Profit margin <br>
+        <span> 10% </span>
+      </p>
+    </div>
+
+    <div class="chart">
+        <img :src="line" alt="graph">
+    </div>
+  </div>
+
+  <div class="overall">
+    <summary-title
+      title="Overall Overview"
+      startDate=""
+      endDate=""
+      class = 'title'
+    ></summary-title>
+
+    <form action="">
+        <div class="form-group">
+          <label for="startDate">From</label>
+          <input type="date" placeholder="start date"/>
+        </div>
+        <div class="form-group">
+          <label for="endDate">To</label>
+          <input type="date"/>
+        </div>
+    </form>
+
+    
   </div>
 </main>
 </template>
@@ -60,6 +154,7 @@
   import { TOMILLISECS } from "../../util/config.js";
   // import {sumSale} from '../../util/helpers.js'
   import SummaryTitle from "../ui/summary/SummaryTitle.vue";
+  import line from "../../assets/line-chart.png"
 
   export default {
     name: "SalesSummary",
@@ -69,6 +164,7 @@
       return {
         sales: this.$store.state.sales.sales,
         data: [],
+        line: line
       };
     },
     computed: {
@@ -356,117 +452,221 @@
   };
 </script>
 <style lang="scss" scoped>
-  
-.title {
-    flex-basis: 100%;
-    padding-left: 0;
-    
-}
-
-h4{
-  margin-bottom: 1vh;
-  flex-basis: 100%;
-}
-
-table tr .key-value{
-  background-color: var(--accent1200);
-  
-}
 
 main {
   display: flex;
   flex-wrap: wrap;
   overflow: hidden;
+  flex-basis: 100%;
+  gap: 1rem;
+  
 
   .today-sales{
+    flex-basis: 100%;
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-    padding: 0;
-    background-color: blue;
-
-    .summary{
-      background-color: aqua;
-      margin: 0;
-    }
+    padding: 1rem;
+    font-size: 1rem;
+    height: fit-content;
+    background-color: var(--background-grey);
+    padding-top: 0;
+    padding-bottom: 1.5rem;
   }
 
-
-
-  .title{
-    background-color: red;
-    margin: 0;
+  .last-week{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1rem;
+    padding-top: 0;
+    background-color: var(--background-grey);
+    justify-content: space-evenly;
   }
-  
+
+  .overall{
+    flex-basis: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    background-color: var(--background-grey);
+    padding: 1rem;
+    padding-top: 0;
+  }
 
 }
 
 .today-sales  {
-  background-color: var(--background-grey);
-  border-top: 1px solid var(--light-grey);
-  padding: 0.2rem;
-  font-size: 1rem;
-  flex-basis: 80%;
-  margin: 0;
 
-
-  & td{
-    padding-right: 1rem;
+  .title{
+    margin: 0;
   }
 
-  & th{
-    padding-right: 1rem;
-    padding-bottom: 1rem;
-    color: var(--primary600);
+  .summary {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0;
+    margin-top: 2vh;
+    
+    table{ 
+      margin-top: 0;
+      background-color: var(--background-grey);
+
+      th,td {
+        padding: 0.5rem;
+        text-align: left;
+        border-right: 1px solid var(--primary600);
+        border-bottom: 1px solid var(--primary600);
+      }
+      td {
+        color: var(--dark-grey);
+        
+      }
+      th {
+        font-size: 0.8rem;
+        border: none;
+        background-color: var(--primary600);
+        color: var(--light-grey);
+        
+      
+      }
+
+      & .row-category{
+        font-weight: 500;
+      }
+
+      & .last-row{
+        & td{
+          border-top: 1px solid var(--mid-grey);
+          padding-top: 0.3rem;
+        }
+      }
+
+      .category {
+        font-weight: bold;
+        background-color: transparent;
+        color: var(--dark-grey);
+        text-align: left;
+        font-size: 0.8rem;
+        padding-right: 0.5rem;
+        border-left: 1px solid var(--primary600);
+      }
+
+      .category-th{
+          border: none;
+          border-bottom: 1px solid var(--primary600);
+
+        }
+      
+    }
+
+    
   }
 
-  & tr{
-  color: var(--dark-grey);
+}
 
-  }
 
-  & .row-category{
-    font-weight: 500;
-  }
+.last-week{
 
-  & .last-row{
-    & td{
-      border-top: 1px solid var(--mid-grey);
-      padding-top: 0.3rem;
+  .tiles{
+    margin-top: 10vh;
+    flex-basis: 40%;
+    height: fit-content;
+    
+    p{
+    background-color: transparent;
+    color: var(--dark-grey);
+    border-right: 1px solid var(--mid-grey);
+    border-bottom: 1px solid var(--mid-grey);
+    margin: 0;
+    }
+    .key-value{
+      color: var(--accent400);
     }
   }
 
-}
+  .chart {
+    flex-basis: 55%;
 
-table{
-
-  th,td {
-    padding: 0.4rem;
-    text-align: left;
-    border: 1px solid var(--light-grey);
-    margin: 0;
-  }
-  td {
-    color: var(--dark-grey);
-
-  }
-  th {
-    color: var(--font-grey);
-    font-size: 0.8rem;
+    img{
+      width: 500px;
+    }
   }
 }
   
-  .category {
-    font-weight: bold;
-    /* color: var(--primary600); */
-    color: var(--black);
-    text-align: left;
-    text-indent: 2vw;
+.tiles{
+      display: flex;
+      flex-wrap: wrap;
+      flex-basis: 30%;
+      margin: 0;
+
+      & p{
+          margin: 0.1rem;
+          width: 8rem;
+          text-align: center;
+          padding: 0.5rem;
+          background-color: var(--primary600);
+          color: var(--font-grey);
+          font-size: 0.9rem;
+
+          & span {
+          margin-top: 2vh;
+          font-weight: 600;
+          line-height: 8vh;
+          font-size: 1rem;
+          }
+        }
+        .key-value{
+          color: var(--accent400);
+         }
+    } 
+
+form{
+  flex-basis: 40%;
+  display: flex;
+  flex-wrap: nowrap;
+  padding: 0;
+  margin-left: 3vw;
+  margin-bottom: 3vh;
+  margin-top: 3vh;
+  background-color: transparent;
+  border: none;
+  justify-content: flex-start;
+
+  .form-group{
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 0;
+    margin: 0;
+    margin-right: 3vw;
+  
+    label{
+      width: fit-content;
+      font-size: 0.88rem;
+      line-height: 8vh;
+      margin-right: 0.5vw;
+      padding: 0;
+    }
+    input{
+      width: fit-content;
+      min-width: 10vw;
+      text-align: center;
+      font-size: 0.9rem;
+      outline: none;
+      border: 1px solid var(--light-grey);
+      text-indent: 0;
+      padding: 0.1rem 0.6rem;
+      
+
+    }
   }
-  .category-th {
-    text-align: left;
-    text-indent: 2vw;
-  }
+}
+
+
+
+
+
+
+
   tbody .net {
     background-color: var(--primary700);
     font-weight: bold;
@@ -477,4 +677,22 @@ table{
   .net td {
     color: var(--color-background);
   }
+
+
+.title {
+    flex-basis: 100%;
+    padding-left: 0; 
+    height: fit-content;
+}
+
+h4{
+  margin-bottom: 1vh;
+  flex-basis: 100%;
+}
+
+table tr .key-value{
+  background-color: var(--accent1200);
+  color: var(--dark-grey);
+  border: none;
+}
 </style>

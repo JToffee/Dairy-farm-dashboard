@@ -27,7 +27,7 @@
     justify-content: center;
   }
   .banner-content h1 {
-    color: var(--primary600);
+    color: var(--accent300);
     font-size: 2.2rem;
     flex-basis: 80%;
     padding-bottom: 0;
@@ -38,7 +38,7 @@
     font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
       Arial, sans-serif;
     font-style: italic;
-    margin-top: -5vh;
+    margin-top: 2vh;
     color: var(--lightSteelBlue);
     font-size: 1rem;
   }
